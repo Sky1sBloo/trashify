@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/jdp/custom-scripts/trashify/Debug",
+  "command": "/usr/bin/c++   -g -o CMakeFiles/trashify.dir/main.cpp.o -c /home/jdp/custom-scripts/trashify/main.cpp",
+  "file": "/home/jdp/custom-scripts/trashify/main.cpp",
+  "output": "CMakeFiles/trashify.dir/main.cpp.o"
+}
+]
