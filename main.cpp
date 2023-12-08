@@ -40,6 +40,24 @@ bool generateTrashFile(const char* file, std::unique_ptr<TrashFile>& fileVar)
 	return true;
 }
 
+/**
+ * Compares the const char string to a lists of strings
+ *
+ * @param str String to be compared
+ * @param vec Lists of string to be compared
+ *
+ * @return One of the lists matches the string
+ */
+bool stringMatchesVector(const char* str, const std::vector<const char*> vec)
+{
+	for (const char* content : vec)
+	{
+		if (strcmp(str, content) == 0)
+			return true;
+	}
+	return false;
+}
+
 int main(int argc, char* argv[])
 {
 	switch (argc)
@@ -48,7 +66,7 @@ int main(int argc, char* argv[])
 		std::cout << "Type -help to list commands" << std::endl;
 		break;
 	case 2:
-		if (strcmp(argv[1], "--help") == 0 || strcmp(argv[1], "-h") == 0)
+		if (stringMatchesVector(argv[1], {"--help", "-h"}))
 		{
 			std::cout << "Trashify Commands\n" <<
 				"-h   --help                         | Lists of commands\n" <<
@@ -71,7 +89,7 @@ int main(int argc, char* argv[])
 
 	if (argc >= 3)
 	{
-		if (strcmp(argv[1], "--trash") == 0 || strcmp(argv[1], "-t") == 0)
+		if (stringMatchesVector(argv[1], {"--trash", "-t"}))
 		{
 			// Allows for multiple deletions
 			for (int i = 2; i < argc; i++)
