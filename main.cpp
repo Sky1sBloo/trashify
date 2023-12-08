@@ -54,21 +54,28 @@ int main(int argc, char* argv[])
 				std::endl;
 		}
 		break;
-	case 3:
+	}
+
+	if (argc >= 3)
+	{
 		if (strcmp(argv[1], "--trash") == 0 || strcmp(argv[1], "-t") == 0)
 		{
-			std::unique_ptr<TrashFile> file;
-			if (generateTrashFile(argv[2], file))
+			// Allows for multiple deletions
+			for (int i = 2; i < argc; i++)
 			{
-				file->MoveToTrash();
-				std::cout << "Removed file: " << argv[2] << std::endl;
+				std::unique_ptr<TrashFile> file;
+				if (generateTrashFile(argv[i], file))
+				{
+					file->MoveToTrash();
+					std::cout << "Removed file: " << argv[i] << std::endl;
+				}
+				else
+				{
+					std::cout << "Failed to remove file: " << argv[i] << std::endl;
+				}
 			}
-			else
-			{
-				std::cout << "Failed to remove file: " << argv[2] << std::endl;
-			}
+			
 		}
-		break;
 	}
 	
 }
