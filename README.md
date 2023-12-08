@@ -16,10 +16,10 @@ Linux utility for trashing files
    ```
 ## Usage
 ```
---help  |  -h
+-h  |  --help
 ```
 Lists of commands
 ```
---trash [file]  |  -t
+-t  |  --trash [file]
 ```
 Trash a specific file or directory
