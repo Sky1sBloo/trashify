@@ -70,5 +70,5 @@
 **/*.cbp
 **/CMakeScripts
 **/compile_commands.json
-*/Debug
+Debug/
 include/divisible/*
