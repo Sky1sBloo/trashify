@@ -6,15 +6,11 @@ Linux utility for trashing files
    ```
    git clone https://github.com/Sky1sBloo/trashify.git
    ```
-2. Go to Debug directory
+2. Generate CMake files
    ```
-   cd Debug
+   cmake ./
    ```
-3. Generate CMake files
-   ```
-   cmake ../
-   ```
-4. Build
+3. Build
    ```
    cmake --build
    ```
