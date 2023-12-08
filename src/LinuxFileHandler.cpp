@@ -1,4 +1,5 @@
 #include "LinuxFileHandler.hpp"
+#include <dirent.h>
 #include <iomanip>
 #include <pwd.h>
 #include <sys/stat.h>
@@ -18,11 +19,31 @@ bool createDirectory(const std::string& path)
 	}
 	else
 	{
-		std::cout << "Error creating directory" << std::endl;
+		std::cerr << "Error creating directory" << std::endl;
 		return false;
 	}
 }
 
+std::vector<std::string> listDirectoryContents(const std::string& path)
+{
+	DIR* dir = opendir(path.c_str());
+	struct dirent* ent;
+	std::vector<std::string> dirContents;
+
+	if (dir != nullptr)
+	{
+		while ((ent = readdir(dir)) != nullptr)
+		{
+			// Filter current directoruy and parent directory
+			if (ent->d_name[0] != '.')
+			{
+				dirContents.push_back(ent->d_name);
+			}
+		}	
+	}
+
+	return dirContents;
+}
 
 const std::string getUserHome()
 {

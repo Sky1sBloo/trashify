@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 /**
  * Checks if path exists in user (check user privilages)
@@ -18,6 +19,14 @@ bool directoryExists(const std::string& path);
  */
 bool createDirectory(const std::string& path);
 
+/**
+ * Lists all directory contents
+ *
+ * @param path Path to be checked
+ *
+ * @return Vector of names of contents
+ */
+std::vector<std::string> listDirectoryContents(const std::string& path);
 /**
  * Returns path to current user's home
  */

@@ -2,8 +2,10 @@
 #include <cstring>
 #include <iostream>
 #include <memory>
+#include <vector>
 
 #include "TrashFile.hpp"
+#include "LinuxFileHandler.hpp"
 
 #define PATH_LENGTH 100
 
@@ -51,7 +53,18 @@ int main(int argc, char* argv[])
 			std::cout << "Trashify Commands\n" <<
 				"-h   --help                         | Lists of commands\n" <<
 				"-t   --trash [file]                 | Trash file\n" <<
+				"-l   --list                         | Lists all trashed file" <<
 				std::endl;
+		}
+		else if (strcmp(argv[1], "--list") == 0 || strcmp(argv[1], "-l") == 0)
+		{
+			std::string trashPath = getUserHome() + TRASH_FOLDER + "/files";
+			std::vector<std::string> contents = listDirectoryContents(trashPath);
+
+			for (auto fileName : contents)
+			{
+				std::cout << fileName << std::endl;
+			}
 		}
 		break;
 	}
