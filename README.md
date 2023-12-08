@@ -23,3 +23,7 @@ Lists of commands
 -t  |  --trash [file]
 ```
 Trash a specific file or directory
+```
+-l  |  --list
+```
+Lists all trashed files and directories
