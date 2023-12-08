@@ -1,8 +1,20 @@
 [
 {
   "directory": "/home/jdp/custom-scripts/trashify/Debug",
-  "command": "/usr/bin/c++   -g -o CMakeFiles/trashify.dir/main.cpp.o -c /home/jdp/custom-scripts/trashify/main.cpp",
+  "command": "/usr/bin/c++  -I/home/jdp/custom-scripts/trashify/include -g -o CMakeFiles/trashify.dir/main.cpp.o -c /home/jdp/custom-scripts/trashify/main.cpp",
   "file": "/home/jdp/custom-scripts/trashify/main.cpp",
   "output": "CMakeFiles/trashify.dir/main.cpp.o"
+},
+{
+  "directory": "/home/jdp/custom-scripts/trashify/Debug",
+  "command": "/usr/bin/c++  -I/home/jdp/custom-scripts/trashify/include -g -o CMakeFiles/trashify.dir/src/LinuxFileHandler.cpp.o -c /home/jdp/custom-scripts/trashify/src/LinuxFileHandler.cpp",
+  "file": "/home/jdp/custom-scripts/trashify/src/LinuxFileHandler.cpp",
+  "output": "CMakeFiles/trashify.dir/src/LinuxFileHandler.cpp.o"
+},
+{
+  "directory": "/home/jdp/custom-scripts/trashify/Debug",
+  "command": "/usr/bin/c++  -I/home/jdp/custom-scripts/trashify/include -g -o CMakeFiles/trashify.dir/src/TrashFile.cpp.o -c /home/jdp/custom-scripts/trashify/src/TrashFile.cpp",
+  "file": "/home/jdp/custom-scripts/trashify/src/TrashFile.cpp",
+  "output": "CMakeFiles/trashify.dir/src/TrashFile.cpp.o"
 }
 ]

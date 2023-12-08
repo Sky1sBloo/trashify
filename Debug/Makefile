@@ -153,6 +153,54 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/trashify.dir/build.make CMakeFiles/trashify.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+src/LinuxFileHandler.o: src/LinuxFileHandler.cpp.o
+.PHONY : src/LinuxFileHandler.o
+
+# target to build an object file
+src/LinuxFileHandler.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trashify.dir/build.make CMakeFiles/trashify.dir/src/LinuxFileHandler.cpp.o
+.PHONY : src/LinuxFileHandler.cpp.o
+
+src/LinuxFileHandler.i: src/LinuxFileHandler.cpp.i
+.PHONY : src/LinuxFileHandler.i
+
+# target to preprocess a source file
+src/LinuxFileHandler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trashify.dir/build.make CMakeFiles/trashify.dir/src/LinuxFileHandler.cpp.i
+.PHONY : src/LinuxFileHandler.cpp.i
+
+src/LinuxFileHandler.s: src/LinuxFileHandler.cpp.s
+.PHONY : src/LinuxFileHandler.s
+
+# target to generate assembly for a file
+src/LinuxFileHandler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trashify.dir/build.make CMakeFiles/trashify.dir/src/LinuxFileHandler.cpp.s
+.PHONY : src/LinuxFileHandler.cpp.s
+
+src/TrashFile.o: src/TrashFile.cpp.o
+.PHONY : src/TrashFile.o
+
+# target to build an object file
+src/TrashFile.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trashify.dir/build.make CMakeFiles/trashify.dir/src/TrashFile.cpp.o
+.PHONY : src/TrashFile.cpp.o
+
+src/TrashFile.i: src/TrashFile.cpp.i
+.PHONY : src/TrashFile.i
+
+# target to preprocess a source file
+src/TrashFile.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trashify.dir/build.make CMakeFiles/trashify.dir/src/TrashFile.cpp.i
+.PHONY : src/TrashFile.cpp.i
+
+src/TrashFile.s: src/TrashFile.cpp.s
+.PHONY : src/TrashFile.s
+
+# target to generate assembly for a file
+src/TrashFile.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trashify.dir/build.make CMakeFiles/trashify.dir/src/TrashFile.cpp.s
+.PHONY : src/TrashFile.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -165,6 +213,12 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... src/LinuxFileHandler.o"
+	@echo "... src/LinuxFileHandler.i"
+	@echo "... src/LinuxFileHandler.s"
+	@echo "... src/TrashFile.o"
+	@echo "... src/TrashFile.i"
+	@echo "... src/TrashFile.s"
 .PHONY : help
 
 

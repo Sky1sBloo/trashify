@@ -81,12 +81,12 @@ clean: CMakeFiles/trashify.dir/clean
 CMakeFiles/trashify.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/trashify.dir/build.make CMakeFiles/trashify.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/trashify.dir/build.make CMakeFiles/trashify.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jdp/custom-scripts/trashify/Debug/CMakeFiles --progress-num=1,2 "Built target trashify"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jdp/custom-scripts/trashify/Debug/CMakeFiles --progress-num=1,2,3,4 "Built target trashify"
 .PHONY : CMakeFiles/trashify.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/trashify.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jdp/custom-scripts/trashify/Debug/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jdp/custom-scripts/trashify/Debug/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/trashify.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jdp/custom-scripts/trashify/Debug/CMakeFiles 0
 .PHONY : CMakeFiles/trashify.dir/rule

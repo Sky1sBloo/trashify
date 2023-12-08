@@ -9,6 +9,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/jdp/custom-scripts/trashify/main.cpp" "CMakeFiles/trashify.dir/main.cpp.o" "gcc" "CMakeFiles/trashify.dir/main.cpp.o.d"
+  "/home/jdp/custom-scripts/trashify/src/LinuxFileHandler.cpp" "CMakeFiles/trashify.dir/src/LinuxFileHandler.cpp.o" "gcc" "CMakeFiles/trashify.dir/src/LinuxFileHandler.cpp.o.d"
+  "/home/jdp/custom-scripts/trashify/src/TrashFile.cpp" "CMakeFiles/trashify.dir/src/TrashFile.cpp.o" "gcc" "CMakeFiles/trashify.dir/src/TrashFile.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.
