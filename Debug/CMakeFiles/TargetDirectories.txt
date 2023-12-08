@@ -1,3 +1,0 @@
-/home/jdp/custom-scripts/trashify/Debug/CMakeFiles/trashify.dir
-/home/jdp/custom-scripts/trashify/Debug/CMakeFiles/edit_cache.dir
-/home/jdp/custom-scripts/trashify/Debug/CMakeFiles/rebuild_cache.dir
