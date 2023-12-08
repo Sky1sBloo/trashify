@@ -7,7 +7,13 @@
 
 #define PATH_LENGTH 100
 
-bool generateTrashFile(const char* file, bool isDirectory, std::unique_ptr<TrashFile>& fileVar)
+/**
+ * Generates a TrashFile class 
+ *
+ * @param file Filename of the file to be trashed
+ * @param fileVar Reference where the trashfile will be stored
+ */
+bool generateTrashFile(const char* file, std::unique_ptr<TrashFile>& fileVar)
 {
 	char resolvedPath[PATH_LENGTH];	
 
@@ -44,14 +50,15 @@ int main(int argc, char* argv[])
 		{
 			std::cout << "Trashify Commands\n" <<
 				"-h   --help                         | Lists of commands\n" <<
-				"-t   --trash [file]                 | Trash file\n";
+				"-t   --trash [file]                 | Trash file\n" <<
+				std::endl;
 		}
 		break;
 	case 3:
 		if (strcmp(argv[1], "--trash") == 0 || strcmp(argv[1], "-t") == 0)
 		{
 			std::unique_ptr<TrashFile> file;
-			if (generateTrashFile(argv[2], false, file))
+			if (generateTrashFile(argv[2], file))
 			{
 				file->MoveToTrash();
 				std::cout << "Removed file: " << argv[2] << std::endl;
