@@ -33,3 +33,8 @@ Lists all trashed files and directories
 -r  |  --restore [file1] [file2]
 ```
 Restores selected files and directories
+```
+-d  |  --delete [file]
+-d  |  --delete [file1] [file2]
+```
+Permanently deletes files and directories

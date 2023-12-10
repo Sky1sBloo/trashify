@@ -12,7 +12,8 @@
 const std::string helpMessage = "Type --help to list commands";
 
 /**
- * Generates a TrashFile class 
+ * Generates a TrashFile class with its own file path
+ * Generally used when you want to trash a new item where its .trashinfo doesn't exist
  *
  * @param file Filename of the file to be trashed
  * @param fileVar Reference where the trashfile will be stored
@@ -72,9 +73,10 @@ int main(int argc, char* argv[])
 		{
 			std::cout << "Trashify Commands\n" <<
 				"-h   --help                         | Lists of commands\n" <<
-				"-t   --trash [file]                 | Trash file\n" <<
-				"-l   --list                         | Lists all trashed file\n" <<
-				"-r   --restore [file]               | Restores a file" <<
+				"-t   --trash [file]                 | Trash a file or directory\n" <<
+				"-l   --list                         | Lists all trashed files and directories\n" <<
+				"-r   --restore [file]               | Restores a file or directory\n" <<
+				"-d   --delete [file]                | Permanently removes file or directory" <<
 				std::endl;
 		}
 		else if (strcmp(argv[1], "--list") == 0 || strcmp(argv[1], "-l") == 0)
@@ -122,6 +124,16 @@ int main(int argc, char* argv[])
 			
 				file.LoadTrashInfo();
 				file.RestoreTrash();
+			}
+		}
+		else if (stringMatchesVector(argv[1], {"--delete", "-d"}))
+		{
+			for (int i = 2; i < argc; i++)
+			{
+				TrashFile file(argv[i]);
+
+				file.LoadTrashInfo();
+				file.DeleteTrash();
 			}
 		}
 		else

@@ -37,6 +37,11 @@ public:
 	 * Restores the trash to mFilePath
 	 */
 	void RestoreTrash();
+
+	/**
+	 * Completely removes trash
+	 */
+	void DeleteTrash();
 private:
 	std::string mFilePath;
 	std::string mFileName;

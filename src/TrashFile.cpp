@@ -90,3 +90,14 @@ void TrashFile::RestoreTrash()
 	system(moveCmd.c_str());
 	system(delCmd.c_str());
 }
+
+void TrashFile::DeleteTrash()
+{
+	std::string trashInfo = getUserHome() + TRASH_FOLDER + "/info/" + mFileName + ".trashinfo";
+	std::string delCmd = "rm " + trashInfo;
+	
+	std::string delFilesCmd = "rm -r " + getUserHome() + TRASH_FOLDER + "/files/" + mFileName;
+
+	system(delFilesCmd.c_str());
+	system(delCmd.c_str());
+}
