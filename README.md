@@ -21,9 +21,15 @@ Linux utility for trashing files
 Lists of commands
 ```
 -t  |  --trash [file]
+-t  |  --trash [file1] [file2]
 ```
 Trash a specific file or directory
 ```
 -l  |  --list
 ```
 Lists all trashed files and directories
+```
+-r  |  --restore [file]
+-r  |  --restore [file1] [file2]
+```
+Restores selected files and directories
