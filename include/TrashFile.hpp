@@ -7,6 +7,10 @@ class TrashFile
 {
 public:
 	/**
+	 * Default constructor for TrashFile
+	 */
+	TrashFile(const std::string& fileName);
+	/**
 	 * Constructor for TrashFile
 	 *
 	 * @param filePath Path to original file location
@@ -23,8 +27,19 @@ public:
 	 * Generates trash information
 	 */
 	bool GenerateTrashInfo();
+
+	/**
+	 * Loads all info from file
+	 */
+	void LoadTrashInfo();
+
+	/**
+	 * Restores the trash to mFilePath
+	 */
+	void RestoreTrash();
 private:
 	std::string mFilePath;
 	std::string mFileName;
+	std::string mDateDeleted;
 	std::time_t mTimeDeleted;
 };

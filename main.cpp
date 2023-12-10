@@ -9,6 +9,8 @@
 
 #define PATH_LENGTH 100
 
+const std::string helpMessage = "Type --help to list commands";
+
 /**
  * Generates a TrashFile class 
  *
@@ -63,7 +65,7 @@ int main(int argc, char* argv[])
 	switch (argc)
 	{
 	case 1:
-		std::cout << "Type -help to list commands" << std::endl;
+		std::cout << helpMessage << std::endl;
 		break;
 	case 2:
 		if (stringMatchesVector(argv[1], {"--help", "-h"}))
@@ -71,7 +73,8 @@ int main(int argc, char* argv[])
 			std::cout << "Trashify Commands\n" <<
 				"-h   --help                         | Lists of commands\n" <<
 				"-t   --trash [file]                 | Trash file\n" <<
-				"-l   --list                         | Lists all trashed file" <<
+				"-l   --list                         | Lists all trashed file\n" <<
+				"-r   --restore [file]               | Restores a file" <<
 				std::endl;
 		}
 		else if (strcmp(argv[1], "--list") == 0 || strcmp(argv[1], "-l") == 0)
@@ -83,6 +86,10 @@ int main(int argc, char* argv[])
 			{
 				std::cout << fileName << std::endl;
 			}
+		}
+		else
+		{
+			std::cout << helpMessage << std::endl;
 		}
 		break;
 	}
@@ -98,7 +105,6 @@ int main(int argc, char* argv[])
 				if (generateTrashFile(argv[i], file))
 				{
 					file->MoveToTrash();
-					std::cout << "Removed file: " << argv[i] << std::endl;
 				}
 				else
 				{
@@ -107,6 +113,20 @@ int main(int argc, char* argv[])
 			}
 			
 		}
+		else if (stringMatchesVector(argv[1], {"--restore", "-r"}))
+		{
+			// Allos for multiple restorations
+			for (int i = 2; i < argc; i++)
+			{
+				TrashFile file(argv[i]);
+			
+				file.LoadTrashInfo();
+				file.RestoreTrash();
+			}
+		}
+		else
+		{
+			std::cout << helpMessage << std::endl;
+		}
 	}
-	
 }

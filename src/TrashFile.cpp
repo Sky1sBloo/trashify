@@ -1,6 +1,7 @@
 #include "TrashFile.hpp"
 #include <iomanip>
 #include <iostream>
+#include <filesystem>
 #include <fstream>
 #include <pwd.h>
 #include <sys/stat.h>
@@ -8,6 +9,10 @@
 
 #include "LinuxFileHandler.hpp"
 
+TrashFile::TrashFile(const std::string& fileName) :
+	mFileName(fileName)
+{
+}
 
 TrashFile::TrashFile(const std::string& filePath, const std::string& fileName) :
 	mFilePath(filePath), mFileName(fileName) 
@@ -46,4 +51,42 @@ bool TrashFile::GenerateTrashInfo()
 
 	fileInfo.close();
 	return true;
+}
+
+void TrashFile::LoadTrashInfo()
+{
+	std::string trashInfo = getUserHome() + TRASH_FOLDER + "/info/" + mFileName + ".trashinfo";
+	if ((!std::filesystem::exists(trashInfo)) && (!std::filesystem::is_regular_file(trashInfo)))
+	{
+		std::cerr << "Trash info corrupted or doesn't exist" << std::endl;
+		return;
+	}
+
+	std::ifstream file(trashInfo);
+
+	if (file.is_open())
+	{
+		std::string line;
+
+		std::getline(file, line);
+		std::getline(file, line);
+
+		mFilePath = line.substr(line.find('=') + 1);
+
+		std::getline(file, line);
+		mDateDeleted = line.substr(line.find('=') + 1);
+	}
+}
+
+void TrashFile::RestoreTrash()
+{
+	// Delete trashinfo
+	std::string trashInfo = getUserHome() + TRASH_FOLDER + "/info/" + mFileName + ".trashinfo";
+	std::string delCmd = "rm " + trashInfo;
+	
+	std::string moveCmd = "mv " + getUserHome() + TRASH_FOLDER + "/files/" + mFileName +
+		" " + mFilePath;
+
+	system(moveCmd.c_str());
+	system(delCmd.c_str());
 }
