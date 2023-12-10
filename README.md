@@ -10,9 +10,13 @@ Linux utility for trashing files
    ```
    cmake ./
    ```
-3. Build
+3. Build the source files
    ```
    cmake --build
+   ```
+4. Install the executable
+   ```
+   cmake --install ./
    ```
 ## Usage
 ```

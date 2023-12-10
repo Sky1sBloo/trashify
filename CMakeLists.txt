@@ -7,3 +7,4 @@ file(GLOB_RECURSE SOURCES "src/*.cpp")
 add_executable(trashify main.cpp ${SOURCES})
 target_include_directories(trashify PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
+install(TARGETS trashify DESTINATION /usr/local/bin)
