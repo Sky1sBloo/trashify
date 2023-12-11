@@ -12,11 +12,17 @@
 TrashFile::TrashFile(const std::string& fileName) :
 	mFileName(fileName)
 {
+	// To prevent adding a slash on trash info
+	if (mFileName.back() == '/')
+		mFileName.pop_back();
 }
 
 TrashFile::TrashFile(const std::string& filePath, const std::string& fileName) :
 	mFilePath(filePath), mFileName(fileName) 
 {
+	if (mFileName.back() == '/')
+		mFileName.pop_back();
+
 	if (!directoryExists(getUserHome() + TRASH_FOLDER))
 	{
 		createDirectory(getUserHome() + "/" + std::string(TRASH_FOLDER));

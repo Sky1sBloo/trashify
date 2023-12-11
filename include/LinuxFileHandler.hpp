@@ -28,6 +28,7 @@ bool createDirectory(const std::string& path);
  * @return Vector of names of contents
  */
 std::vector<std::string> listDirectoryContents(const std::string& path);
+
 /**
  * Returns path to current user's home
  */

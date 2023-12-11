@@ -20,7 +20,8 @@ const std::string helpMessage = "Type --help to list commands";
  */
 bool generateTrashFile(const char* file, std::unique_ptr<TrashFile>& fileVar)
 {
-	char resolvedPath[PATH_LENGTH];	
+	char resolvedPath[PATH_LENGTH];
+
 
 	if (realpath(file, resolvedPath) == NULL)
 	{
