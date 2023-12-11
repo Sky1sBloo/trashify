@@ -76,10 +76,11 @@ int main(int argc, char* argv[])
 				"-t   --trash [file]                 | Trash a file or directory\n" <<
 				"-l   --list                         | Lists all trashed files and directories\n" <<
 				"-r   --restore [file]               | Restores a file or directory\n" <<
-				"-d   --delete [file]                | Permanently removes file or directory" <<
+				"-d   --delete [file]                | Permanently removes file or directory\n" <<
+				"-e   --empty                        | Empties the trash bin" <<
 				std::endl;
 		}
-		else if (strcmp(argv[1], "--list") == 0 || strcmp(argv[1], "-l") == 0)
+		else if (stringMatchesVector(argv[1], {"--list", "-l"}))
 		{
 			std::string trashPath = getUserHome() + TRASH_FOLDER + "/files";
 			std::vector<std::string> contents = listDirectoryContents(trashPath);
@@ -87,6 +88,18 @@ int main(int argc, char* argv[])
 			for (auto fileName : contents)
 			{
 				std::cout << fileName << std::endl;
+			}
+		}
+		else if (stringMatchesVector(argv[1], {"--empty", "-e"}))
+		{
+			std::string trashPath = getUserHome() + TRASH_FOLDER + "/files";
+			std::vector<std::string> contents = listDirectoryContents(trashPath);	
+
+			for (auto fileName : contents)
+			{
+				TrashFile file(fileName);
+				file.LoadTrashInfo();
+				file.DeleteTrash();
 			}
 		}
 		else
