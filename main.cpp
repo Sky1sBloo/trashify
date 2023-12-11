@@ -61,17 +61,12 @@ bool stringMatchesVector(const char* str, const std::vector<const char*> vec)
 	return false;
 }
 
-int main(int argc, char* argv[])
+/**
+ * Lists all available commands
+ */
+void printListCommands()
 {
-	switch (argc)
-	{
-	case 1:
-		std::cout << helpMessage << std::endl;
-		break;
-	case 2:
-		if (stringMatchesVector(argv[1], {"--help", "-h"}))
-		{
-			std::cout << "Trashify Commands\n" <<
+	std::cout << "Trashify Commands\n" <<
 				"-h   --help                         | Lists of commands\n" <<
 				"-t   --trash [file]                 | Trash a file or directory\n" <<
 				"-l   --list                         | Lists all trashed files and directories\n" <<
@@ -79,37 +74,56 @@ int main(int argc, char* argv[])
 				"-d   --delete [file]                | Permanently removes file or directory\n" <<
 				"-e   --empty                        | Empties the trash bin" <<
 				std::endl;
-		}
-		else if (stringMatchesVector(argv[1], {"--list", "-l"}))
-		{
-			std::string trashPath = getUserHome() + TRASH_FOLDER + "/files";
-			std::vector<std::string> contents = listDirectoryContents(trashPath);
 
-			for (auto fileName : contents)
-			{
-				std::cout << fileName << std::endl;
-			}
-		}
-		else if (stringMatchesVector(argv[1], {"--empty", "-e"}))
-		{
-			std::string trashPath = getUserHome() + TRASH_FOLDER + "/files";
-			std::vector<std::string> contents = listDirectoryContents(trashPath);	
+}
+/**
+ * Lists all trashed files
+ */
+void listTrashedFiles()
+{
+	std::string trashPath = getUserHome() + TRASH_FOLDER + "/files";
+	std::vector<std::string> contents = listDirectoryContents(trashPath);
 
-			for (auto fileName : contents)
-			{
-				TrashFile file(fileName);
-				file.LoadTrashInfo();
-				file.DeleteTrash();
-			}
-		}
-		else
-		{
-			std::cout << helpMessage << std::endl;
-		}
-		break;
+	for (auto fileName : contents)
+	{
+		std::cout << fileName << std::endl;
 	}
+}
 
-	if (argc >= 3)
+/**
+ * Empties trash
+ */
+void emptyTrash()
+{
+	std::string trashPath = getUserHome() + TRASH_FOLDER + "/files";
+	std::vector<std::string> contents = listDirectoryContents(trashPath);	
+
+	for (auto fileName : contents)
+	{
+		TrashFile file(fileName);
+		file.LoadTrashInfo();
+		file.DeleteTrash();
+	}
+}
+
+int main(int argc, char* argv[])
+{
+	if (argc == 1)
+	{
+		std::cout << helpMessage << std::endl;
+	}
+	else if (argc == 2)
+	{
+		if (stringMatchesVector(argv[1], {"--help", "-h"}))
+			printListCommands();
+		else if (stringMatchesVector(argv[1], {"--list", "-l"}))
+			listTrashedFiles();
+		else if (stringMatchesVector(argv[1], {"--empty", "-e"}))
+			emptyTrash();
+		else
+			std::cout << helpMessage << std::endl;
+	}
+	else
 	{
 		if (stringMatchesVector(argv[1], {"--trash", "-t"}))
 		{
