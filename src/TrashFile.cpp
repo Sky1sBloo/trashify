@@ -90,7 +90,7 @@ void TrashFile::RestoreTrash()
 	std::string trashInfo = getUserHome() + TRASH_FOLDER + "/info/" + mFileName + ".trashinfo";
 	std::string delCmd = "rm " + trashInfo;
 	
-	std::string moveCmd = "mv " + getUserHome() + TRASH_FOLDER + "/files/" + mFileName +
+	std::string moveCmd = "mv -r" + getUserHome() + TRASH_FOLDER + "/files/" + mFileName +
 		" " + mFilePath;
 
 	system(moveCmd.c_str());
