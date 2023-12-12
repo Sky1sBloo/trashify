@@ -35,7 +35,7 @@ void TrashFile::MoveToTrash()
 {
 	GenerateTrashInfo();
 	std::string moveCmd;
-	moveCmd = "mv " + mFilePath + "/" + mFileName + " " + getUserHome() + TRASH_FOLDER + "/files";	
+	moveCmd = "mv -r" + mFilePath + "/" + mFileName + " " + getUserHome() + TRASH_FOLDER + "/files";	
 	system(moveCmd.c_str());
 }
 
